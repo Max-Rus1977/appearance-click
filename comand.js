@@ -1,12 +1,16 @@
-document.addEventListener('mousemove', parallax);
-      
-function parallax(e) {
-  this.querySelectorAll('.layer').forEach(layer => {
-    const speed = layer.getAttribute('data-speed')
+const bottons = document.querySelectorAll('.btn');
+const modal = document.querySelector('.bacground__box-images');
 
-    const x = (window.innerWidth - e.pageX*speed)/100
-    const y = (window.innerHeight - e.pageY*speed)/100
+for (let botton of bottons) {
+  botton.addEventListener('click', clickBtn)
+}
 
-    layer.style.transform = `translateX(${x}px) translateY(${y}px)`   
-  })
+function clickBtn() {
+  modal.classList.add('activ-js');
+}
+
+modal.addEventListener('click', cloceModal);
+
+function cloceModal() {
+  modal.classList.remove('activ-js');
 }
