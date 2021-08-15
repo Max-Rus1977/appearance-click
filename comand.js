@@ -17,27 +17,24 @@ function createModalImg() {
 
   bacgroundModalTeg.classList.add('bacground__box-images');
   boxImagesTeg.classList.add('box-images');
-  console.log(texBtn);
   imgTeg.src = imagesSrc[texBtn];
-  console.log(imagesSrc[texBtn]);
-
 
   bacgroundModalTeg.appendChild(boxImagesTeg);
   boxImagesTeg.appendChild(imgTeg);
   genContainer.appendChild(bacgroundModalTeg);
 
   bacgroundModalTeg.classList.add('activ-js');
-  setTimeout(ad, 2000);
-
-  function ad() {
-    bacgroundModalTeg.classList.add('activ-js');
-  }
 
 }
 
 window.addEventListener('click', (event) => {
   if (event.target.classList.contains('bacground__box-images')) {
-    event.target.remove();
+    event.target.querySelector('.box-images').classList.add('anim-down');
+    setTimeout(removeModal, 500);
+
+    function removeModal() {
+      event.target.remove();
+    }
   }
 })
 

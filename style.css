@@ -62,6 +62,11 @@ body {
   z-index: -10;
 }
 
+.bacground__box-images.activ-js {
+  opacity: 1;
+  z-index: 10;
+}
+
 .box-images {
   width: 40%;
   margin: 0 auto;
@@ -69,16 +74,34 @@ body {
   text-align: center;
   border: 1px solid silver;
   transition: 0.5s;
-  transform: translate(-100%, 0px);
-  /* opacity: 0; */
   cursor: pointer;
+  animation: animate 0.8s;
 }
 
-.bacground__box-images.activ-js {
-  opacity: 1;
-  z-index: 10;
+@keyframes animate {
+  0% {
+    transform: translate(-100%, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 
-.activ-js .box-images {
-  transform: translate(0px, 0px);
+.anim-down {
+  animation: animate-down 0.4s;
+  transform: translate(0px, 100%);
+  opacity: 0;
+}
+
+@keyframes animate-down {
+  0% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, 100%);
+  }
 }
